@@ -58,7 +58,7 @@ ENVOY_HOST = option_dict["ENVOY_HOST"]  # ** Enter envoy-s IP. Note - use FQDN a
 ENVOY_USER= option_dict["ENVOY_USER"]
 ENVOY_USER_PASS= option_dict["ENVOY_USER_PASS"]
 USE_FREEDS= option_dict["USE_FREEDS"]
-MQTT_TOPIC_FREEDS = "Inverter/GridWatts"
+MQTT_TOPIC_FREEDS = "Inverter/GridWattss"
 MQTT_TOPIC_DISCOVERY_DATA = "EnvoyData"
 MQTT_TOPIC_DISCOVERY = "EnvoyDiscovery"
 ####  End Settings - no changes after this line
