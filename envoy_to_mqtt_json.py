@@ -343,6 +343,8 @@ def scrape_stream_livedata():
                     if USE_FREEDS: 
                         json_string_freeds = json.dumps(round(stream.json()["meters"]["grid"]["agg_p_mw"]*0.001))
                         client.publish(topic= MQTT_TOPIC_FREEDS , payload= json_string_freeds, qos=0 )
+                        json_string_voltage = json.dumps(round(stream.json()[0]['voltage']))
+                        client.publish(topic= MQTT_TOPIC_DISCOVERY_DATA , payload= json_string_freeds, qos=0 )
                     time.sleep(0.6)
             elif not is_json_valid(stream.content):
                 print(dt_string, 'Invalid Json Response:', stream.content)
