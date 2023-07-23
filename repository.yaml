@@ -1,4 +1,4 @@
 # https://developers.home-assistant.io/docs/add-ons/repository#repository-configuration
-name: vk2him's Enphase add-on repository
+name: vk2him's Enphase add-on repository copy
 url: 'https://github.com/Turbox35/Enphase-Envoy-mqtt'
 maintainer: vk2him <vk2him@gmail.com>
