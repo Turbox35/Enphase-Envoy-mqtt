@@ -1,0 +1,13 @@
+sensors:
+    - id: "1"
+      state_class: measurement
+      state_topic: EnvoyData/1
+      unit_of_measurement: V
+      device_class: power
+      friendly_name: net_consumption_voltage
+    - id: "2"
+      state_class: measurement
+      state_topic: EnvoyData/2
+      unit_of_measurement: W
+      device_class: power
+      friendly_name: net_comsumption_watt
