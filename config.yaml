@@ -1,5 +1,5 @@
-name: "Stream mqtt from Enphase Envoy"
-description: "Converts Envoy Json to mqtt firmware v5 or v7"
+name: "Stream mqtt from Enphase Envoy test"
+description: "Converts Envoy to mqtt firmware v5 or v7"
 version: "1.0.12"
 slug: "envoy_to_mqtt_json"
 init: false
