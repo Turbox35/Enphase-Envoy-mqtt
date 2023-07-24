@@ -227,10 +227,10 @@ time.sleep(10)
 # read autodiscovery file
 config = read_config()
 
-# Start auto discovery
-
-
 client.loop_start()
+
+# Start auto discovery
+publish(client, config)
 
 ## Generation of Envoy password based on serial number, copy from https://github.com/sarnau/EnphaseEnergy/passwordCalc.py
 ## Credits to Markus Fritze https://github.com/sarnau/EnphaseEnergy
