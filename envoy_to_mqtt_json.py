@@ -238,13 +238,14 @@ def publish(client, config):
             device_class = config['sensors'][i]['device_class']
             friendly_name = config['sensors'][i]['friendly_name']
             value_template = config['sensors'][i]['value_template']
+            template = "{{ " + value_template + " }}"
             unit_of_measurement = config['sensors'][i]['unit_of_measurement']
             name = friendly_name + "_" + unit_of_measurement
             state_topic = config['sensors'][i]['state_topic']
             unique_id = name + "_" + str(i)
             fulltopic = MQTT_TOPIC_DISCOVERY + "/sensor/" + name + "/1/config"
             mqttmessage = {
-                "value_template":value_template,
+                "value_template":template,
                 "device_class":device_class,
                 "unit_of_measurement":unit_of_measurement,
                 "state_topic":state_topic,
