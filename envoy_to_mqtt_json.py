@@ -424,7 +424,7 @@ def scrape_stream_meters():
                     #print(dt_string, 'Json Response:', stream.json())
                     json_string = json.dumps(stream.json())
                     client.publish(topic= MQTT_TOPIC , payload= json_string, qos=0 )
-                    print (dt_string,'stream is /ivp/meters/readings')
+                    #print (dt_string,'stream is /ivp/meters/readings')
                     if USE_FREEDS: 
                         json_string_freeds = json.dumps(round(stream.json()[1]["activePower"]))
                         client.publish(topic= MQTT_TOPIC_FREEDS , payload= json_string_freeds, qos=0 )
@@ -434,9 +434,9 @@ def scrape_stream_meters():
                             "value":stream.json()[0]['voltage']
                             }
                         msg =  json.dumps(mqttmessage)
-                        temptopic = MQTT_TOPIC_DISCOVERY_DATA + "/1/"
+                        temptopic = "EnvoyData/1"
                         client.publish(topic= MQTT_TOPIC_DISCOVERY_DATA , payload= msg, qos=0 )
-                    time.sleep(0.6)
+                    time.sleep(2.6)
                 else:
                     print(dt_string, 'Invalid Json Response:', stream.content)
         except requests.exceptions.RequestException as e:
