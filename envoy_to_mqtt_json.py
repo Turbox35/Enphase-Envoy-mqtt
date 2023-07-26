@@ -224,6 +224,51 @@ client.connect(MQTT_HOST,int(MQTT_PORT), 30)
 time.sleep(10)
 #print(dt_string," Connected to %s:%s" % (MQTT_HOST, MQTT_PORT))
 
+def read_config():
+    with open('discovery_configuration.yaml') as f:   
+    
+        config = yaml.load(f, Loader=yaml.FullLoader)
+    print(f"config readed")
+    return config
+
+def publish(client, config):
+    x = len(config['sensors'])
+    print("Sensors to declare :" + str(x))
+    for i in range(x):
+            device_class = config['sensors'][i]['device_class']
+            friendly_name = config['sensors'][i]['friendly_name']
+            unit_of_measurement = config['sensors'][i]['unit_of_measurement']
+            name = friendly_name + "_" + unit_of_measurement
+            state_topic = config['sensors'][i]['state_topic']
+            unique_id = name + "_" + str(i)
+            fulltopic = MQTT_TOPIC_DISCOVERY + "/sensor/" + name + "/1/config"
+            mqttmessage = {
+                "value_template":"{{ value_json.value }}",
+                "device_class":device_class,
+                "unit_of_measurement":unit_of_measurement,
+                "state_topic":state_topic,
+                "json_attributes_topic":state_topic,
+                "device": {
+                    "identifiers":[
+                    friendly_name
+                    ],
+                    "manufacturer":"ENPHASE",
+                    "model":"ENVOY",
+                    "name":friendly_name,
+                    "sw_version":"1.0"
+                },
+                "name":name,
+                "unique_id":unique_id
+                }
+            msg =  json.dumps(mqttmessage)
+            result = client.publish(fulltopic, msg, retain=True)
+            status = result[0]
+            if status == 0:
+                print(f"Send ok to topic `{fulltopic}`")
+            else:
+                print(f"Failed to send message to topic {fulltopic}")
+
+
 # read autodiscovery file
 config = read_config()
 
@@ -581,50 +626,6 @@ data: {
     "total-consumption":{
     "net-consumption": {
 """
-
-def read_config():
-    with open('discovery_configuration.yaml') as f:   
-    
-        config = yaml.load(f, Loader=yaml.FullLoader)
-    print(f"config readed")
-    return config
-
-def publish(client, config):
-    x = len(config['sensors'])
-    print("Sensors to declare :" + str(x))
-    for i in range(x):
-            device_class = config['sensors'][i]['device_class']
-            friendly_name = config['sensors'][i]['friendly_name']
-            unit_of_measurement = config['sensors'][i]['unit_of_measurement']
-            name = friendly_name + "_" + unit_of_measurement
-            state_topic = config['sensors'][i]['state_topic']
-            unique_id = name + "_" + str(i)
-            fulltopic = MQTT_TOPIC_DISCOVERY + "/sensor/" + name + "/1/config"
-            mqttmessage = {
-                "value_template":"{{ value_json.value }}",
-                "device_class":device_class,
-                "unit_of_measurement":unit_of_measurement,
-                "state_topic":state_topic,
-                "json_attributes_topic":state_topic,
-                "device": {
-                    "identifiers":[
-                    friendly_name
-                    ],
-                    "manufacturer":"ENPHASE",
-                    "model":"ENVOY",
-                    "name":friendly_name,
-                    "sw_version":"1.0"
-                },
-                "name":name,
-                "unique_id":unique_id
-                }
-            msg =  json.dumps(mqttmessage)
-            result = client.publish(fulltopic, msg, retain=True)
-            status = result[0]
-            if status == 0:
-                print(f"Send ok to topic `{fulltopic}`")
-            else:
-                print(f"Failed to send message to topic {fulltopic}")
 
 
 def main():
