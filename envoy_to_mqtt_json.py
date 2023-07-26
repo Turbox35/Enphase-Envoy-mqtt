@@ -428,7 +428,7 @@ def scrape_stream_meters():
                         time.sleep(0.6)
                         #json_string_voltage = json.dumps(round(stream.json()[0]['voltage']))
                         mqttmessage = {
-                            "value":stream.json()[0]['voltage']
+                            "voltage":stream.json()[0]['voltage']
                             }
                         msg =  json.dumps(mqttmessage)
                         temptopic = "EnvoyData/1"
