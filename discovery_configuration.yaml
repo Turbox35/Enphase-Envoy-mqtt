@@ -2,14 +2,14 @@ sensors:
     - id: "1"
       state_class: measurement
       state_topic: EnvoyData/1
-      value_template: {{ value_json.voltage }}
+      value_template: value_json.voltage
       unit_of_measurement: V
       device_class: power
       friendly_name: production_voltage
     - id: "2"
       state_class: measurement
       state_topic: EnvoyData/2
-      value_template: {{ value_json.activePower }}
+      value_template: value_json.activePower
       unit_of_measurement: W
       device_class: power
       friendly_name: production_watt
