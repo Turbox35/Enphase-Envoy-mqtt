@@ -3,7 +3,7 @@ FROM $BUILD_FROM
 
 # Install requirements for add-on
 
-RUN apk add --no-cache python3 py3-requests py3-pip py3-paho-mqtt
+RUN apk add --no-cache python3 py3-requests py3-pip py3-paho-mqtt pyyaml
 
 # Copy data for add-on
 COPY run.sh /
