@@ -61,7 +61,7 @@ ENVOY_USER_PASS= option_dict["ENVOY_USER_PASS"]
 USE_FREEDS= option_dict["USE_FREEDS"]
 MQTT_TOPIC_FREEDS = "Inverter/GridWattss"
 MQTT_TOPIC_DISCOVERY_DATA = "EnvoyData"
-MQTT_TOPIC_DISCOVERY = ["DISCOVERY_TOPIC"]
+MQTT_TOPIC_DISCOVERY = option_dict["DISCOVERY_TOPIC"]
 ####  End Settings - no changes after this line
 
 #Password generator
