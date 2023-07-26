@@ -435,7 +435,7 @@ def scrape_stream_meters():
                             }
                         msg =  json.dumps(mqttmessage)
                         temptopic = "EnvoyData/1"
-                        client.publish(topic= MQTT_TOPIC_DISCOVERY_DATA , payload= msg, qos=0 )
+                        client.publish(topic= temptopic , payload= msg, qos=0 )
                     time.sleep(2.6)
                 else:
                     print(dt_string, 'Invalid Json Response:', stream.content)
