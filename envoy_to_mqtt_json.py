@@ -429,12 +429,25 @@ def scrape_stream_meters():
                         time.sleep(0.6)
                         #json_string_voltage = json.dumps(round(stream.json()[0]['voltage']))
                         mqttmessage = {
-                            "voltage":stream.json()[0]['voltage']
+                            "voltage":stream.json()[0]['voltage'],
+                            "actEnergyDlvd":stream.json()[0]['actEnergyDlvd'],
+                            "actEnergyRcvd":stream.json()[0]['actEnergyRcvd'],
+                            "activePower":stream.json()[0]['activePower']
                             }
                         msg =  json.dumps(mqttmessage)
                         temptopic = "EnvoyData/1"
                         client.publish(topic= temptopic , payload= msg, qos=0 )
-                    time.sleep(2.6)
+                        time.sleep(0.1)
+                        mqttmessage = {
+                            "voltage":stream.json()[1]['voltage'],
+                            "actEnergyDlvd":stream.json()[1]['actEnergyDlvd'],
+                            "actEnergyRcvd":stream.json()[1]['actEnergyRcvd'],
+                            "activePower":stream.json()[1]['activePower']
+                            }
+                        msg =  json.dumps(mqttmessage)
+                        temptopic = "EnvoyData/2"
+                        client.publish(topic= temptopic , payload= msg, qos=0 )
+                    time.sleep(10.0)
                 else:
                     print(dt_string, 'Invalid Json Response:', stream.content)
         except requests.exceptions.RequestException as e:
