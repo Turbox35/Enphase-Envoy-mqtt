@@ -20,6 +20,7 @@ options:
   ENVOY_USER_PASS: enter.enphase.password
   USE_FREEDS: False
   DISCOVERY_TOPIC: EnvoyDiscovery
+  RETAIN_DISCOVERY: False
 
 schema:
   MQTT_HOST: str
@@ -32,3 +33,4 @@ schema:
   ENVOY_USER_PASS: str
   USE_FREEDS: bool
   DISCOVERY_TOPIC: str
+  RETAIN_DISCOVERY: bool
