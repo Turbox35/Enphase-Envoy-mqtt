@@ -436,8 +436,8 @@ def scrape_stream_meters():
                         #json_string_voltage = json.dumps(round(stream.json()[0]['voltage']))
                         mqttmessage = {
                             "voltage":stream.json()[0]['voltage'],
-                            "actEnergyDlvd":stream.json()[0]['actEnergyDlvd'],
-                            "actEnergyRcvd":stream.json()[0]['actEnergyRcvd'],
+                            "actEnergyDlvd":stream.json()[0]['actEnergyDlvd']/1000,
+                            "actEnergyRcvd":stream.json()[0]['actEnergyRcvd']/1000,
                             "activePower":stream.json()[0]['activePower']
                             }
                         msg =  json.dumps(mqttmessage)
@@ -446,8 +446,8 @@ def scrape_stream_meters():
                         time.sleep(0.1)
                         mqttmessage = {
                             "voltage":stream.json()[1]['voltage'],
-                            "actEnergyDlvd":stream.json()[1]['actEnergyDlvd'],
-                            "actEnergyRcvd":stream.json()[1]['actEnergyRcvd'],
+                            "actEnergyDlvd":stream.json()[1]['actEnergyDlvd']/1000,
+                            "actEnergyRcvd":stream.json()[1]['actEnergyRcvd']/1000,
                             "activePower":stream.json()[1]['activePower']
                             }
                         msg =  json.dumps(mqttmessage)
