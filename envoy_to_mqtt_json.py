@@ -62,6 +62,7 @@ USE_FREEDS= option_dict["USE_FREEDS"]
 MQTT_TOPIC_FREEDS = "Inverter/GridWattss"
 MQTT_TOPIC_DISCOVERY_DATA = "EnvoyData"
 MQTT_TOPIC_DISCOVERY = option_dict["DISCOVERY_TOPIC"]
+MQTT_RETAIN_DISCOVERY = option_dict["RETAIN_DISCOVERY"]
 ####  End Settings - no changes after this line
 
 #Password generator
@@ -263,7 +264,7 @@ def publish(client, config):
                 "unique_id":unique_id
                 }
             msg =  json.dumps(mqttmessage)
-            result = client.publish(fulltopic, msg, retain=True)
+            result = client.publish(fulltopic, msg, retain=MQTT_RETAIN_DISCOVERY)
             status = result[0]
             if status == 0:
                 print(f"Send ok to topic `{fulltopic}`")
