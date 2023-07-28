@@ -61,6 +61,7 @@ ENVOY_USER_PASS= option_dict["ENVOY_USER_PASS"]
 USE_FREEDS= option_dict["USE_FREEDS"]
 MQTT_TOPIC_FREEDS = "Inverter/GridWattss"
 MQTT_TOPIC_DISCOVERY_DATA = "EnvoyData"
+MQTT_USE_DISCOVERY = option_dict["USE_DISCOVERY"]
 MQTT_TOPIC_DISCOVERY = option_dict["DISCOVERY_TOPIC"]
 MQTT_RETAIN_DISCOVERY = option_dict["RETAIN_DISCOVERY"]
 ####  End Settings - no changes after this line
@@ -278,7 +279,11 @@ config = read_config()
 client.loop_start()
 
 # Start auto discovery
-publish(client, config)
+if MQTT_USE_DISCOVERY: 
+    print(dt_string, 'MQTT Auto Discovery enabled')
+    publish(client, config)
+else:
+    print(dt_string, 'MQTT Auto Discovery disabled')
 
 ## Generation of Envoy password based on serial number, copy from https://github.com/sarnau/EnphaseEnergy/passwordCalc.py
 ## Credits to Markus Fritze https://github.com/sarnau/EnphaseEnergy
