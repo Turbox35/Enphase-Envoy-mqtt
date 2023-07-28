@@ -10,14 +10,14 @@ sensors:
       state_class: measurement
       state_topic: EnvoyData/1
       value_template: value_json.actEnergyDlvd
-      unit_of_measurement: kWh
+      unit_of_measurement: Wh
       device_class: power
       friendly_name: production_actEnergyDlvd
     - id: "3"
       state_class: measurement
       state_topic: EnvoyData/1
       value_template: value_json.actEnergyRcvd
-      unit_of_measurement: kWh
+      unit_of_measurement: Wh
       device_class: power
       friendly_name: production_actEnergyRcvd
     - id: "4"
@@ -38,14 +38,14 @@ sensors:
       state_class: measurement
       state_topic: EnvoyData/2
       value_template: value_json.actEnergyDlvd
-      unit_of_measurement: kWh
+      unit_of_measurement: Wh
       device_class: power
       friendly_name: netconsumption_actEnergyDlvd
     - id: "7"
       state_class: measurement
       state_topic: EnvoyData/2
       value_template: value_json.actEnergyRcvd
-      unit_of_measurement: kWh
+      unit_of_measurement: Wh
       device_class: power
       friendly_name: netconsumption_actEnergyRcvd
     - id: "8"
