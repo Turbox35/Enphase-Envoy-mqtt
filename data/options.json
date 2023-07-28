@@ -8,6 +8,7 @@
   "ENVOY_PASSWORD": "secret",
   "ENVOY_USER_PASS": "secret",
   "USE_FREEDS": "False",
+  "USE_DISCOVERY": "False",
   "DISCOVERY_TOPIC": "EnvoyDiscovery"
   "MQTT_TOPIC": "envoy/json",
   "RETAIN_DISCOVERY": "False"
