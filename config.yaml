@@ -19,6 +19,7 @@ options:
   ENVOY_USER: enter.enphase.userid@email.com
   ENVOY_USER_PASS: enter.enphase.password
   USE_FREEDS: False
+  USE_DISCOVERY: False
   DISCOVERY_TOPIC: EnvoyDiscovery
   RETAIN_DISCOVERY: False
 
@@ -32,5 +33,6 @@ schema:
   ENVOY_USER: str
   ENVOY_USER_PASS: str
   USE_FREEDS: bool
+  USE_DISCOVERY: bool
   DISCOVERY_TOPIC: str
   RETAIN_DISCOVERY: bool
