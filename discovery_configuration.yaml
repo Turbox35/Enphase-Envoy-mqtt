@@ -31,7 +31,7 @@ sensors:
       state_class: measurement
       state_topic: EnvoyData/1
       value_template: value_json.pwrFactor
-      unit_of_measurement: %
+      unit_of_measurement: none
       device_class: power_factor
       friendly_name: production_pwrFactor
     - id: "6"
@@ -66,7 +66,7 @@ sensors:
       state_class: measurement
       state_topic: EnvoyData/2
       value_template: value_json.pwrFactor
-      unit_of_measurement: %
+      unit_of_measurement: none
       device_class: power_factor
       friendly_name: netconsumption_pwrFactor
     - id: "11"
