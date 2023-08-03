@@ -29,33 +29,47 @@ sensors:
       friendly_name: production_activePower
     - id: "5"
       state_class: measurement
+      state_topic: EnvoyData/1
+      value_template: value_json.pwrFactor
+      unit_of_measurement: %
+      device_class: power_factor
+      friendly_name: production_pwrFactor
+    - id: "6"
+      state_class: measurement
       state_topic: EnvoyData/2
       value_template: value_json.voltage
       unit_of_measurement: V
       device_class: power
       friendly_name: netconsumption_voltage
-    - id: "6"
+    - id: "7"
       state_class: measurement
       state_topic: EnvoyData/2
       value_template: value_json.actEnergyDlvd
       unit_of_measurement: kWh
       device_class: power
       friendly_name: netconsumption_actEnergyDlvd
-    - id: "7"
+    - id: "8"
       state_class: measurement
       state_topic: EnvoyData/2
       value_template: value_json.actEnergyRcvd
       unit_of_measurement: kWh
       device_class: power
       friendly_name: netconsumption_actEnergyRcvd
-    - id: "8"
+    - id: "9"
       state_class: measurement
       state_topic: EnvoyData/2
       value_template: value_json.activePower
       unit_of_measurement: W
       device_class: power
       friendly_name: netconsumption_activePower
-    - id: "9"
+    - id: "10"
+      state_class: measurement
+      state_topic: EnvoyData/2
+      value_template: value_json.pwrFactor
+      unit_of_measurement: %
+      device_class: power_factor
+      friendly_name: netconsumption_pwrFactor
+    - id: "11"
       state_class: measurement
       state_topic: EnvoyData/3
       value_template: value_json.consEnergy
