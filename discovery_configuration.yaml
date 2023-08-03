@@ -55,3 +55,10 @@ sensors:
       unit_of_measurement: W
       device_class: power
       friendly_name: netconsumption_activePower
+    - id: "9"
+      state_class: measurement
+      state_topic: EnvoyData/3
+      value_template: value_json.consEnergy
+      unit_of_measurement: kWh
+      device_class: power
+      friendly_name: totalconsumption_consEnergy
