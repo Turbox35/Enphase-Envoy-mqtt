@@ -457,7 +457,7 @@ def scrape_stream_meters():
                         client.publish(topic= temptopic , payload= msg, qos=0 )
                         time.sleep(0.05)
                         consEnergy = stream.json()[0]['actEnergyDlvd']/1000 + stream.json()[1]['actEnergyDlvd']/1000 - stream.json()[0]['actEnergyRcvd']/1000 - stream.json()[1]['actEnergyRcvd']/1000
-                         mqttmessage = {
+                        mqttmessage = {
                             "consEnergy":consEnergy
                             }
                         msg =  json.dumps(mqttmessage)
