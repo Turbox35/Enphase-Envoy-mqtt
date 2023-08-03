@@ -259,7 +259,7 @@ def publish(client, config):
                     "manufacturer":"ENPHASE",
                     "model":"ENVOY",
                     "name":friendly_name,
-                    "sw_version":version
+                    "sw_version":version[0]
                 },
                 "name":name,
                 "unique_id":unique_id
