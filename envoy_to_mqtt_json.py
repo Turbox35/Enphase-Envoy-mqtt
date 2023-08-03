@@ -259,7 +259,7 @@ def publish(client, config):
                     "manufacturer":"ENPHASE",
                     "model":"ENVOY",
                     "name":friendly_name,
-                    "sw_version":"1.0"
+                    "sw_version":version
                 },
                 "name":name,
                 "unique_id":unique_id
@@ -438,22 +438,32 @@ def scrape_stream_meters():
                             "voltage":stream.json()[0]['voltage'],
                             "actEnergyDlvd":stream.json()[0]['actEnergyDlvd']/1000,
                             "actEnergyRcvd":stream.json()[0]['actEnergyRcvd']/1000,
-                            "activePower":stream.json()[0]['activePower']
+                            "activePower":stream.json()[0]['activePower'],
+                            "pwrFactor":stream.json()[0]['pwrFactor']
                             }
                         msg =  json.dumps(mqttmessage)
                         temptopic = "EnvoyData/1"
                         client.publish(topic= temptopic , payload= msg, qos=0 )
-                        time.sleep(0.1)
+                        time.sleep(0.05)
                         mqttmessage = {
                             "voltage":stream.json()[1]['voltage'],
                             "actEnergyDlvd":stream.json()[1]['actEnergyDlvd']/1000,
                             "actEnergyRcvd":stream.json()[1]['actEnergyRcvd']/1000,
-                            "activePower":stream.json()[1]['activePower']
+                            "activePower":stream.json()[1]['activePower'],
+                            "pwrFactor":stream.json()[1]['pwrFactor']
                             }
                         msg =  json.dumps(mqttmessage)
                         temptopic = "EnvoyData/2"
                         client.publish(topic= temptopic , payload= msg, qos=0 )
-                    time.sleep(10.0)
+                        time.sleep(0.05)
+                        consEnergy = stream.json()[0]['actEnergyDlvd']/1000 + stream.json()[1]['actEnergyDlvd']/1000 - stream.json()[0]['actEnergyRcvd']/1000 - actEnergyRcvd":stream.json()[1]['actEnergyRcvd']/1000
+                         mqttmessage = {
+                            "consEnergy":consEnergy
+                            }
+                        msg =  json.dumps(mqttmessage)
+                        temptopic = "EnvoyData/3"
+                        client.publish(topic= temptopic , payload= msg, qos=0 )
+                    time.sleep(9.9)
                 else:
                     print(dt_string, 'Invalid Json Response:', stream.content)
         except requests.exceptions.RequestException as e:
