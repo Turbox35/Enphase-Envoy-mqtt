@@ -76,3 +76,10 @@ sensors:
       unit_of_measurement: kWh
       device_class: power
       friendly_name: totalconsumption_consEnergy
+    - id: "12"
+      state_class: measurement
+      state_topic: EnvoyData/3
+      value_template: value_json.consPower
+      unit_of_measurement: W
+      device_class: power
+      friendly_name: totalconsumption_consPower
