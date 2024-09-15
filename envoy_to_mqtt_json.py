@@ -257,7 +257,7 @@ def publish(client, config):
                 "json_attributes_topic":state_topic,
                 "device": {
                     "identifiers":[
-                    Enphase-Envoy-mqtt
+                    "Enphase-Envoy-mqtt"
                     ],
                     "manufacturer":"ENPHASE",
                     "model":"ENVOY",
