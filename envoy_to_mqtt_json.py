@@ -240,6 +240,7 @@ def publish(client, config):
     x = len(config['sensors'])
     print("Sensors to declare :" + str(x))
     for i in range(x):
+            integration_name = "Enphase-Envoy-mqtt"
             device_class = config['sensors'][i]['device_class']
             friendly_name = config['sensors'][i]['friendly_name']
             value_template = config['sensors'][i]['value_template']
@@ -257,7 +258,7 @@ def publish(client, config):
                 "json_attributes_topic":state_topic,
                 "device": {
                     "identifiers":[
-                    "Enphase-Envoy-mqtt"
+                    integration_name
                     ],
                     "manufacturer":"ENPHASE",
                     "model":"ENVOY",
