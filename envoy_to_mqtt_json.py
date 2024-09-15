@@ -257,11 +257,11 @@ def publish(client, config):
                 "json_attributes_topic":state_topic,
                 "device": {
                     "identifiers":[
-                    friendly_name
+                    Enphase-Envoy-mqtt
                     ],
                     "manufacturer":"ENPHASE",
                     "model":"ENVOY",
-                    "name":friendly_name,
+                    "name":"solar panels",
                     "sw_version":version[0]
                 },
                 "name":name,
