@@ -1,5 +1,7 @@
 # Python script: `Enphase Envoy mqtt json for Home Assistant`
 
+This fork add Home Assistant autodiscovery (for home Home Assistant of course but also Domoticz as an example).
+
 A Python script that takes a real time json stream from an Enphase Envoy and publishes to a mqtt broker. This can then be used within Home Assistant or for other applications. The data updates at least once per second with negligible load on the Envoy.
 
 **Note - Now works with 7.x.x firmware - thansk to @helderd.**
@@ -9,7 +11,7 @@ A Python script that takes a real time json stream from an Enphase Envoy and pub
 
 # Requirements
 
-- An Enphase Envoy running 5.x.x or 7.x.x firmware.
+- An Enphase Envoy running 5.x.x,  7.x.x or 8.xx firmware .
 - For 7.x.x a token is automatically downloaded from Enphase every time the addon is started, so you must include your Enphase account username and password in configutaion
 - A mqtt broker that is already running - this can be external or use the `Mosquitto broker` from the Home Assistant Add-on store
     - If you use the HA broker add-on, create a Home Assistant user/password for mqtt as described in the `Mosquitto broker` installation instructions
