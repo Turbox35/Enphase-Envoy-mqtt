@@ -1,6 +1,6 @@
 name: "Stream mqtt from Enphase Envoy test"
 description: "Converts Envoy to mqtt firmware v5, v7 or V8"
-version: "1.0.14"
+version: "1.0.15"
 slug: "envoy_to_mqtt"
 init: false
 arch:
