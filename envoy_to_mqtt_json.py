@@ -246,6 +246,7 @@ def publish(client, config):
             value_template = config['sensors'][i]['value_template']
             template = "{{ " + value_template + " }}"
             unit_of_measurement = config['sensors'][i]['unit_of_measurement']
+            state_class = config['sensors'][i]['state_class']
             name = friendly_name + "_" + unit_of_measurement
             state_topic = config['sensors'][i]['state_topic']
             unique_id = name
@@ -254,6 +255,7 @@ def publish(client, config):
                 "value_template":template,
                 "device_class":device_class,
                 "unit_of_measurement":unit_of_measurement,
+                "state_class": state_class,
                 "state_topic":state_topic,
                 "json_attributes_topic":state_topic,
                 "device": {
